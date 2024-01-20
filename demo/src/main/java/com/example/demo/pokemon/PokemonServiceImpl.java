@@ -2,11 +2,13 @@ package com.example.demo.pokemon;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
+@Service
 public class PokemonServiceImpl implements PokemonService{
 
     private final PokemonRepository pokemonRepository;
@@ -31,8 +33,8 @@ public class PokemonServiceImpl implements PokemonService{
 
     @Transactional
     @Override
-    public PokemonDTO createPokemon(PokemonDTO pokemonDTO) {
-        Pokemon pokemon = pokemonMapper.pokemonDTOToPokemon(pokemonDTO);
+    public PokemonDTO createPokemon(PokemonForm pokemonForm) {
+        Pokemon pokemon = pokemonMapper.pokemonFormToPokemon(pokemonForm);
         pokemonRepository.save(pokemon);
         return pokemonMapper.pokemonToPokemonDTO(pokemon);
     }

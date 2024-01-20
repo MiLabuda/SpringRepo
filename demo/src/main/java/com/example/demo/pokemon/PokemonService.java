@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-@Service
 public interface PokemonService {
 
     List<PokemonDTO> getAllPokemon();
@@ -15,7 +14,7 @@ public interface PokemonService {
 
     Pokemon getPokemonByIdOrThrow(Long id);
 
-    PokemonDTO createPokemon(PokemonDTO pokemonDTO);
+    PokemonDTO createPokemon(PokemonForm pokemonForm);
 
     PokemonDTO partialUpdatePokemon(Long id, Map<String, Object> updates);
 
