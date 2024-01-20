@@ -50,4 +50,21 @@ public class PokemonMapper {
         pokemon.setTrainer(pokemonDTO.getTrainer());
         return pokemon;
     }
+
+    public Pokemon pokemonFormToPokemon(PokemonForm pokemonForm){
+        Pokemon pokemon = new Pokemon();
+        pokemon.setId(IdGenerator.generateId());
+        pokemon.setName(pokemonForm.getName());
+        pokemon.setAbilities(pokemonForm.getAbilities());
+        pokemon.setType(pokemonForm.getType());
+        pokemon.setAttack(pokemonForm.getAttack());
+        pokemon.setDefense(pokemonForm.getDefense())  ;
+        pokemon.setHealthPoints(pokemonForm.getHealthPoints());
+        pokemon.setLevel(pokemonForm.getLevel());
+        pokemon.setSpeed(pokemonForm.getSpeed());
+        pokemon.setExperience(pokemonForm.getExperience());
+        pokemon.setRegion(pokemonForm.getRegion());
+        pokemon.setTrainer(pokemonForm.getTrainer());
+        return pokemon;
+    }
 }

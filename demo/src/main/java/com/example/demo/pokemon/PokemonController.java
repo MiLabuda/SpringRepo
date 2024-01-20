@@ -1,5 +1,6 @@
 package com.example.demo.pokemon;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +24,8 @@ public class PokemonController {
     }
 
     @PostMapping
-    PokemonDTO createPokemon(PokemonDTO pokemonDTO){
-        return pokemonService.createPokemon(pokemonDTO);
+    PokemonDTO createPokemon(@Valid @RequestBody PokemonForm pokemonForm){
+        return pokemonService.createPokemon(pokemonForm);
     }
 
     @PatchMapping("/{id}")
