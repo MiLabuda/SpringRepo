@@ -1,8 +1,12 @@
 package com.example.demo.pokemon;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class PokemonDTO {
 
     private String name;

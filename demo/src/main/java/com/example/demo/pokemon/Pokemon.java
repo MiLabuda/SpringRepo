@@ -1,11 +1,15 @@
 package com.example.demo.pokemon;
 
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Pokemon {
 
     @Id
