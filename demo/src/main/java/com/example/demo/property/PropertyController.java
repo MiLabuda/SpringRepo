@@ -11,7 +11,7 @@ public class PropertyController {
 
     private final PropertyService propertyService;
 
-    @GetMapping("/{name}")
+    @GetMapping("/user/{name}")
     String getProperty(@PathVariable String name){
         return propertyService.getPropertyByName(name);
     }

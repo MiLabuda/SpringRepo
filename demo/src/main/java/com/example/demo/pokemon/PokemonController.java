@@ -8,37 +8,38 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@RestController("/pokemon")
+@RestController
+@RequestMapping("/pokemon")
 public class PokemonController {
 
     private final PokemonService pokemonService;
 
-    @GetMapping
+    @GetMapping("/user")
     List<PokemonDTO> getAllPokemon(){
         return pokemonService.getAllPokemon();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     PokemonDTO getAllPokemon(@PathVariable Long id){
         return pokemonService.getPokemonDTOByIdOrThrow(id);
     }
 
-    @PostMapping
+    @PostMapping("/admin")
     PokemonDTO createPokemon(@Valid @RequestBody PokemonForm pokemonForm){
         return pokemonService.createPokemon(pokemonForm);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/admin/{id}")
     PokemonDTO updatePokemon(@PathVariable Long id, Map<String, Object> updates){
         return pokemonService.partialUpdatePokemon(id, updates);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/{id}")
     PokemonDTO updatePokemon(@PathVariable Long id, PokemonDTO pokemonDTO){
         return pokemonService.updatePokemon(id, pokemonDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     String deletePokemon(@PathVariable Long id){
         pokemonService.deletePokemon(id);
         return "Pokemon with id " + id + " deleted";
