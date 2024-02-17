@@ -1,7 +1,6 @@
 package com.example.demo.utils;
 
-import java.util.UUID;
-
+import java.util.Random;
 
 public class IdGenerator {
 
@@ -10,6 +9,8 @@ public class IdGenerator {
     }
 
     public static Long generateId() {
-        return Long.valueOf(UUID.randomUUID().toString());
+        Random random = new Random();
+        int randomSixDigit = random.nextInt(900000) + 100000;
+        return Long.valueOf(randomSixDigit);
     }
 }
